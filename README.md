@@ -17,11 +17,6 @@ Hackathon theme: **Digital Engagement** (Problem Statement #3) — *proactively 
 | 3 | [Business model](docs/03-business-model.md) | #4 Business model / commercial potential |
 | 4 | [Technology stack](docs/04-tech-stack.md) | #5 Technology stack details |
 
-## Still to produce
-- #1/#2 Project title + team details (title = "Ariagent"; team TBD)
-- #7 Idea deck (assemble from docs 1–3)
-- #8/#9 Demo video + GitHub repo (after prototype)
-- The runnable prototype (Phase 2)
 
 ## The product in one picture
 
