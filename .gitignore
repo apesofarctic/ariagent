@@ -4,3 +4,6 @@ __pycache__/
 .env
 .next/
 *.pyc
+
+# local sqlite store
+backend/ariagent.db

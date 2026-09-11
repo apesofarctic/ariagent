@@ -1,0 +1,26 @@
+{
+  "n_customers": 150,
+  "n_groups": 15640,
+  "recurring_subscription_detection": {
+    "precision": 0.4384133611691023,
+    "recall": 0.9767441860465116
+  },
+  "n_true_alias_duplicate_customers": 18,
+  "duplicate_pairs": {
+    "incumbent_rule_on_raw_strings": {
+      "precision": 0.15384615384615385,
+      "recall": 1.0,
+      "n_flagged": 117
+    },
+    "incumbent_rule_on_normalized_strings": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "n_flagged": 18
+    },
+    "challenger_embedding_similarity": {
+      "precision": 0.9,
+      "recall": 0.5,
+      "n_flagged": 10
+    }
+  }
+}

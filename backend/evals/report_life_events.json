@@ -1,0 +1,27 @@
+{
+  "n_checkpoints": 31200,
+  "positive_rate": 0.023333333333333334,
+  "n_baby_event_customers": 67,
+  "incumbent_rule": {
+    "precision": 0.032069071847055194,
+    "recall": 0.6227544910179641,
+    "lead_time": {
+      "customers_with_event": 67,
+      "detected_before_event": 43,
+      "detection_rate": 0.6417910447761194,
+      "mean_lead_time_days": 65.74418604651163,
+      "median_lead_time_days": 73.0
+    }
+  },
+  "gbdt_aggregates": {
+    "precision": 0.06382978723404255,
+    "recall": 0.05389221556886228,
+    "threshold": 0.6948435374468823
+  },
+  "gru_sequence": {
+    "precision": 0.03389830508474576,
+    "recall": 0.0718562874251497,
+    "threshold": 0.8477150519289564
+  },
+  "keep_or_drop_gru_vs_gbdt": "drop GRU, GBDT wins"
+}

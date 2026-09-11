@@ -1,26 +1,148 @@
 @import "tailwindcss";
 
+/* ─── Ariagent design tokens ─────────────────────────────────────────────
+   Gray is the canvas; blue (Grow / brand) and green (Protect / safety) are
+   accents used with restraint; Guide is a warm bronze-slate. All three mode
+   colors are WCAG-AA on their surfaces and CVD-validated as a set.        */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --surface-2: #f8f9fb;
+  --border: #e4e7ec;
+  --border-strong: #cfd4dd;
+  --ink: #101828;
+  --ink-2: #475467;
+  --ink-3: #98a2b3;
+
+  --primary: #1d4ed8;          /* brand + Grow */
+  --primary-strong: #1e40af;
+  --primary-soft: #eef3fe;
+
+  --protect: #047857;
+  --protect-soft: #eafaf2;
+  --grow: #1d4ed8;
+  --grow-soft: #eef3fe;
+  --guide: #a16207;
+  --guide-soft: #faf4e8;
+
+  --danger: #dc2626;
+  --danger-soft: #fdf0f0;
+  --warn: #d97706;
+  --warn-soft: #fdf7e9;
+
+  --grid: #eceef2;             /* chart hairlines */
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.05), 0 1px 3px rgb(16 24 40 / 0.06);
+  --shadow-pop: 0 6px 16px -6px rgb(16 24 40 / 0.16), 0 2px 6px rgb(16 24 40 / 0.06);
+}
+
+[data-theme="dark"] {
+  --bg: #0b0f16;
+  --surface: #151a23;
+  --surface-2: #1a202b;
+  --border: #262e3b;
+  --border-strong: #374152;
+  --ink: #f2f4f7;
+  --ink-2: #98a2b3;
+  --ink-3: #667085;
+
+  --primary: #5590ee;
+  --primary-strong: #7aa8f3;
+  --primary-soft: #17233a;
+
+  --protect: #10a56e;
+  --protect-soft: #10261d;
+  --grow: #5590ee;
+  --grow-soft: #17233a;
+  --guide: #bd8b33;
+  --guide-soft: #2a2112;
+
+  --danger: #f07575;
+  --danger-soft: #321616;
+  --warn: #e5a83b;
+  --warn-soft: #2b2310;
+
+  --grid: #1f2733;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.35);
+  --shadow-pop: 0 8px 20px -6px rgb(0 0 0 / 0.55);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-soft: var(--primary-soft);
+  --color-protect: var(--protect);
+  --color-protect-soft: var(--protect-soft);
+  --color-grow: var(--grow);
+  --color-grow-soft: var(--grow-soft);
+  --color-guide: var(--guide);
+  --color-guide-soft: var(--guide-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-grid: var(--grid);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@layer components {
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+  }
+}
+
+/* CTA blue is constant across themes: white text clears AA on it. */
+.btn-primary {
+  background: #1d4ed8;
+  color: #ffffff;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 150ms ease;
+}
+.btn-primary:hover:not(:disabled) { background: #1e40af; }
+[data-theme="dark"] .btn-primary:hover:not(:disabled) { background: #2f5fd3; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-ghost {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--ink-2);
+  font-weight: 500;
+  background: var(--surface);
+  transition: background 150ms ease, border-color 150ms ease;
+}
+.btn-ghost:hover:not(:disabled) { background: var(--surface-2); border-color: var(--border-strong); }
+.btn-ghost:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-danger {
+  border: 1px solid color-mix(in srgb, var(--danger) 35%, transparent);
+  color: var(--danger);
+  border-radius: 10px;
+  font-weight: 500;
+  transition: background 150ms ease;
+}
+.btn-danger:hover:not(:disabled) { background: var(--danger-soft); }
+
+::selection { background: color-mix(in srgb, var(--primary) 22%, transparent); }

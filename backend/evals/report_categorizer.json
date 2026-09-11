@@ -1,0 +1,50 @@
+{
+  "n_customers": 150,
+  "months": 6,
+  "train_rows": 24589,
+  "test_rows": 6143,
+  "1.1_rules_raw": {
+    "macro_f1": 0.8040994443702175,
+    "coverage": 0.9417222855282436,
+    "per_class_recall": {
+      "subscription": 0.86328125,
+      "salary": 0.0,
+      "rent": 0.803921568627451,
+      "health": 0.9129129129129129
+    }
+  },
+  "1.2_rules_normalized": {
+    "macro_f1": 0.8212011470220024,
+    "coverage": 0.8481198111671822,
+    "per_class_recall": {
+      "subscription": 0.86328125,
+      "salary": 0.0,
+      "rent": 0.803921568627451,
+      "health": 0.7567567567567568
+    }
+  },
+  "1.3_embedding_challenger": {
+    "macro_f1": 0.9949052027585765,
+    "coverage": 1.0,
+    "per_class_recall": {
+      "subscription": 0.95703125,
+      "salary": 0.9833333333333333,
+      "rent": 1.0,
+      "health": 1.0
+    }
+  },
+  "margin_challenger_vs_raw_rules": {
+    "margin_mean": 0.13549617780151393,
+    "ci_low": 0.1293335739722293,
+    "ci_high": 0.14129229250998993,
+    "clears_ci": true
+  },
+  "margin_challenger_vs_normalized_rules": {
+    "margin_mean": 0.11834144528703043,
+    "ci_low": 0.11289720331194905,
+    "ci_high": 0.12348080421432761,
+    "clears_ci": true
+  },
+  "keep_or_drop": "keep challenger",
+  "runtime_s": 170.9
+}

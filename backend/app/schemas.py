@@ -39,3 +39,8 @@ class Nudge(BaseModel):
     action_label: str
     tool: str
     tool_args: dict
+    mode: Mode = "protect"
+    reasoning: list[str] = []          # visible reasoning trace ("why")
+    regulated: bool = False            # SIP / insurance / money-move → disclaimer
+    reversible: bool = True
+    journey: list[str] | None = None   # multi-step Guide journeys
